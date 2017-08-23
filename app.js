@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var io = require('socket.io').listen(http);
+
+
+
 
 var questions = ["Which of these is not a type of cloud?", "What is the currency of China?", "What is the abbrieviation of the UK's national security intelligence agency?", "On a film set, what is the long pole with a microphone on the end of it called?", "What is the worst-case time complexity for searching an element in a binary search tree?"];
 var choices = [["Cumulus", "Stratus", "Omnibus", "Cirribus"], ["Yen", "Peso", "Dinar", "Renminbi"], ["NCA", "CSIS", "SAS", "MI5"], ["Boom", "Compressor", "Woofer", "Gaffer"], ["O(n)", "O(1)", "O(log n)", "O(n log n)"]];
@@ -22,7 +25,9 @@ app.get('/mobile', function(req, res) {
 
 app.set('port', process.env.PORT || 3000);
 
-
+http.listen(app.get('port'), function() {
+	console.log("listening on *:3000");
+});
 
 
 io.on('connection', function(socket) {
@@ -174,9 +179,6 @@ io.on('connection', function(socket) {
     
 });
 
-http.listen(app.get('port'), function() {
-	console.log("listening on *:3000");
-});
 
 
 
