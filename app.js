@@ -95,7 +95,9 @@ io.on('connection', function(socket) {
     
     
     socket.on("lets play", function() {
+        console.log(socket.handshake.headers.referer);
         var gameRoom = (socket.handshake.headers.referer == 'mighty-plateau-12872.herokuapp.com/') ? findRoom(socket.id) : findRoomByMobile(socket.id);
+        console.log(gameRoom.roomId);
         
         set = new QuestionSet(gameRoom.randomized[0][gameRoom.setCounter], gameRoom.randomized[1][gameRoom.setCounter]);
         socket.emit('continue',{currentSet: set, playerPoints: 0, maxPlayers: gameRoom.numOfPlayers});   //send first set of questions/choices
