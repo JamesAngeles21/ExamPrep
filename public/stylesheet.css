@@ -1,0 +1,114 @@
+
+body {
+    overflow-x: hidden;
+}
+
+
+
+
+#main-window, #game-window {
+	width: 300px;
+	height: 250px;
+	background-color: rgba(238, 238 ,238, .9);
+	margin:auto;
+	border-radius: 10px;
+    outline: 4px double #FFF;
+    outline-offset: 8px;
+}
+
+
+
+h1 {
+    text-align:center;
+    font-size:50px;
+    color:white;
+    padding-top: 20px;
+}
+
+h2 {
+    text-align:center;
+    padding:15px;
+    color:#222;
+    
+}
+
+
+
+
+#code-input {
+    width: 100px;
+    height: 50px;
+    margin-left: 30px;
+    transform:translateX(10%);
+    font-size:20px;
+    color:#000;
+}
+
+.submit {
+    margin-left:20px;
+    color:black;
+    width:35%;
+	background-color: transparent;
+    border-radius: 2px;
+    border-color: black;
+    transition: 1s;
+}
+
+.submit:hover {
+    background-color:#222;
+    color:white;
+}
+
+#game-field {
+    z-index: 1;
+}
+.slides {
+    background-color: #222;
+
+}
+
+.choice, .players {
+    display:block;
+    text-align:center;
+    width:70%;
+    height:40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom:30px;
+    background-color:#EEE;
+    color:rgba(20,20,20,.7);
+    font-weight: 800;
+    border:none;
+    box-shadow: 0px 3px 0px rgba(255,255,255,0.3);
+    
+}
+
+.question-format {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size:30px;
+    margin: 5px 5px;
+    padding: 0px 0px;
+    text-align:left;
+    color: #EEE;
+    margin:20px;
+
+}
+
+.wait {
+    font-family: 'Gentium Basic', serif;
+    font-size:35px;
+    margin:auto;
+    color: #FFF;
+    transform: translateY(50%);
+}
+
+.waiting-room {
+    width:80%;
+    height: 40%;
+    margin:auto;
+    transform: translateY(50%);
+    border-radius:10px;
+    box-shadow: 0px 10px 0px rgba(0,0,0,1);
+    background-color: #ff335c;
+}

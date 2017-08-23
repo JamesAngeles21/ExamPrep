@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html> 
+
+	<head>
+
+	    <meta charset = "utf-8">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<title> ExamPrep </title>
+		<link rel = "stylesheet" href = "stylesheet.css">
+        
+        <link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="../PageTransitions/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="../PageTransitions/css/multilevelmenu.css" />
+		<link rel="stylesheet" type="text/css" href="../PageTransitions/css/component.css" />
+		<link rel="stylesheet" type="text/css" href="../PageTransitions/css/animations.css" />
+        <link href="https://fonts.googleapis.com/css?family=Gentium+Basic" rel="stylesheet">		
+        <script src="../PageTransitions/js/modernizr.custom.js"></script>
+	</head>
+    
+	<body>
+        
+        <div id = "pt-main" class = "pt-perspective">
+            
+            <div id = "slide-0" class = "pt-page pt-page-1">
+                <h1> <span> ExamPrep</span></h1>
+                <button class = "players" type = "submit" value = "1"> 1 Player</button>
+                <button class = "players" type = "submit" value = "2"> 2 Players</button>
+                <button class = "players" type = "submit" value = "3"> 3 Players</button>
+                <button class = "players" type = "submit" value = "4"> 4 Players</button>
+            </div>
+            
+               
+			<div id = "slide-1" class="pt-page pt-page-1"><h1><span> ExamPrep</span></h1>
+            
+                <div class="pt-triggers">
+                    <div id = "main-window">
+                        <h2> Enter the code below</h2>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+			<div id = "slide-2" class="pt-page slides">
+                <div id = "questions"></div>
+            </div>
+            
+            <div id = "slide-3" class = "pt-page slides ">
+                <div id = "questions"></div>
+            </div>
+            
+            <div id = "slide-4" class = "pt-page slides">
+                <div id = "questions"></div>
+            </div>
+            
+            <div id = "slide-5" class = "pt-page slides">
+                <div id = "questions"></div>
+            </div>
+            
+            <div id = "slide-6" class = "pt-page slides">
+                <div id = "questions"></div>
+            </div>
+            
+            <div id = "end" class = "pt-page slides">
+                <h2 class = "question-format"> The game has finished!</h2>
+            </div>
+            
+            <div id = "disconnected" class = "pt-page slides"></div>
+        </div>
+        
+
+        
+
+		<script src = "/socket.io/socket.io.js"></script>
+    	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src = "main.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="../PageTransitions/js/jquery.dlmenu.js"></script>
+		<script src="../PageTransitions/js/pagetransitions.js"></script> 
+
+	</body>
+
+</html>
