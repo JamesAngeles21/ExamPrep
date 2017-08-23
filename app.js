@@ -97,7 +97,7 @@ io.on('connection', function(socket) {
     socket.on("lets play", function() {
         console.log(socket.handshake.headers.referer);
         var currentUrl = socket.handshake.headers.referer;
-        var gameRoom = (currentUrl.charAt(current.length-1) == '/') ? findRoom(socket.id) : findRoomByMobile(socket.id);
+        var gameRoom = (currentUrl.charAt(currentUrl.length-1) == '/') ? findRoom(socket.id) : findRoomByMobile(socket.id);
         console.log(gameRoom.roomId);
         
         set = new QuestionSet(gameRoom.randomized[0][gameRoom.setCounter], gameRoom.randomized[1][gameRoom.setCounter]);
