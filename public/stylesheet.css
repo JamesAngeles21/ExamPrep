@@ -112,3 +112,14 @@ h2 {
     box-shadow: 0px 10px 0px rgba(0,0,0,1);
     background-color: #ff335c;
 }
+
+.title {
+    font-family: 'Satisfy', serif;
+	font-weight: 400;
+	font-size: 60px;
+	text-transform: none;
+	word-spacing: 0;
+	letter-spacing: 0;
+	display: block;
+	opacity: 1;
+}
