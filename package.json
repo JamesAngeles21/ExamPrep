@@ -1,17 +1,9 @@
 {
-  "name": "examprep",
+  "name": "myapp",
+  "description": "a really cool app",
   "version": "1.0.0",
-  "description": "ExamPrep real-time trivia games",
-  "main": "app.js",
-  "dependencies": {
-    "socket.io": ">2.0.0",
-    "express": ">4.14.0",
-  },
-"engines": {
+  "engines": {
     "node": "6.11.x"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
