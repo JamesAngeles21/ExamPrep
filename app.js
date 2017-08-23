@@ -95,7 +95,7 @@ io.on('connection', function(socket) {
     
     
     socket.on("lets play", function() {
-        var gameRoom = (socket.handshake.headers.referer == 'https://mighty-plateau-12872.herokuapp.com/') ? findRoom(socket.id) : findRoomByMobile(socket.id);
+        var gameRoom = (socket.handshake.headers.referer == 'mighty-plateau-12872.herokuapp.com/') ? findRoom(socket.id) : findRoomByMobile(socket.id);
         
         set = new QuestionSet(gameRoom.randomized[0][gameRoom.setCounter], gameRoom.randomized[1][gameRoom.setCounter]);
         socket.emit('continue',{currentSet: set, playerPoints: 0, maxPlayers: gameRoom.numOfPlayers});   //send first set of questions/choices
@@ -146,7 +146,7 @@ io.on('connection', function(socket) {
     
     socket.on('disconnect', function() {
         //remove room from array when desktop disconnects
-        if(socket.handshake.headers.referer == 'https://mighty-plateau-12872.herokuapp.com/') {
+        if(socket.handshake.headers.referer == 'mighty-plateau-12872.herokuapp.com/') {
             console.log("desktop disconnected!");
             
             var roomIndex = rooms.binarySearch(socket.id, true);
