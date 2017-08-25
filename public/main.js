@@ -120,7 +120,7 @@ $(function() {
         var secondString = currentSet.roomTransition[roomTransition];
         console.log(firstString + " " + secondString);
         if(secondString != "#end")  {                //if not the last question
-            $(secondString + ":first").append($("<h2 class = 'question-format'>").text(currentSet.question));
+            $(secondString + ":first").append($("<h2 class = 'question-format'>").text("Question # " + roomTransition + ": " + currentSet.question));
             for(i = 0; i < 4; i++) {
                 if(window.location.pathname == '/') {
                     $(secondString +":first").append($('<button class = "choice" type = "submit" disabled>').text(currentSet.choices[i]));
