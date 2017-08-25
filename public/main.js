@@ -82,7 +82,6 @@ $(function() {
         socket.on("wrong roomcode", function(message) {
             $("#error-code").text(message);            
             $("#error-code").css("display", "block");
-            console.log(message);
         });
         
         socket.on("right roomcode", function(players) {
@@ -114,11 +113,9 @@ $(function() {
     //serve next question
     socket.on('continue', function(set) {
         currentSet = set.currentSet;
-        console.log("room transition: " + roomTransition);
-        console.log("Player Points: " + set.playerPoints);
+        
         var firstString = currentSet.roomTransition[roomTransition-1];
         var secondString = currentSet.roomTransition[roomTransition];
-        console.log(firstString + " " + secondString);
         if(secondString != "#end")  {                //if not the last question
             $(secondString + ":first").append($("<h2 class = 'question-format'>").text("Question # " + roomTransition + ": " + currentSet.question));
             for(i = 0; i < 4; i++) {
@@ -144,7 +141,6 @@ $(function() {
         
         else {
             
-            console.log("max players: " + set.maxPlayers);
             for(i = 0; i < set.maxPlayers; i++) {
                 
                 var playerScore;
@@ -163,12 +159,11 @@ $(function() {
                 var winner = determineWinner(set.playerPoints);
                 var result; 
                 if(set.maxPlayers == 1){
-                    result = $("<h2 class = 'question-format'>").text("Your final score was " + set.playerPoints[0] + " points out of a possible 500");
+                    result = $("<h2 class = 'ending'>").text("Your final score was " + set.playerPoints[0] + " points out of a possible 500!");
                 }
                 
                 else {                                    
-                    result = (winner != -1) ? ($("<h2 class = 'question-format'>").text("Player " + (winner + 1) + " has won!")) : ($("<h2 class = 'question-format'>").text("There has been a tie for first place!"));
-                    console.log(result);
+                    result = (winner != -1) ? ($("<h2 class = 'ending'>").text("Player " + (winner + 1) + " has won!")) : ($("<h2 class = 'question-format'>").text("There has been a tie for first place!"));
                     
                 } 
                 
@@ -202,11 +197,7 @@ $(function() {
     });
     
     socket.on("desktop-update", function(answer) {
-        console.log("index: " + (answer.playerId -1));
-        console.log(answer.score);
-        console.log("Player " + answer.playerId + ": " +  answer.score[(answer.playerId -1)]);
         var playerId = ".player-" + answer.playerId;
-        console.log(playerId);
         $(playerId).text("Player " + answer.playerId + ": " + answer.score[(answer.playerId -1)]);     
         //updates that specific score on the desktop host screen
         

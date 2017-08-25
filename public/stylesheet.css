@@ -74,7 +74,7 @@ h2 {
     height:40px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 7%;
+    margin-top: 50px;
     margin-bottom:0px;
     background-color:#EEE;
     color:rgba(20,20,20,.7);
@@ -93,6 +93,15 @@ h2 {
     color: #EEE;
     margin:20px;
 
+}
+
+.ending {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size:35px;
+    text-align: center;
+    margin-top:auto;
+    margin-bottom:auto;
+    color:white;
 }
 
 .wait {

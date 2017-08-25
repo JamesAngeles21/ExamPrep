@@ -35,16 +35,12 @@ io.on('connection', function(socket) {
     socket.on('new room', function(data) {
         console.log("user connected!");
         rooms.push(new room(socket,data.room));
-        for(i = 0; i < rooms.length; i++) {
-            console.log("room " + i + ": " + rooms[i].roomId);
-        }
         
     });
     
     socket.on("player-connect", function(players) {
         
         var gameRoom = findRoom(socket.id);
-        console.log("GameRoom: " + gameRoom.roomSocket.id);
         gameRoom.numOfPlayers = players;                    //instantiate the max number of players
         for(i = 0; i < players; i++) {
             gameRoom.pointSystem[i] = 0;                    //instantiate point system using players
@@ -157,11 +153,9 @@ io.on('connection', function(socket) {
             var gameRoom = rooms[roomIndex];
             if(roomIndex != -1) {
                 rooms.splice(rooms.binarySearch(socket.id, true),1);
-                for(i = 0; i < rooms.length; i++) {
-                    console.log(rooms[i].roomId);
-                }
+                
                 for(i = 0; i < gameRoom.mobileSockets.length; i++) {
-                socket.to(gameRoom.mobileSockets[i].id).emit("game end", {slides: roomSwitch, message: "Desktop has disconnected! Please refresh to start a new game"});
+                    socket.to(gameRoom.mobileSockets[i].id).emit("game end", {slides: roomSwitch, message: "Desktop has disconnected! Please refresh to start a new game"});
                 }
             }
         }
@@ -223,10 +217,6 @@ function binarySearch(searchElement, isDesktop) {
         else if (!isDesktop) {  //if finding by mobile id  
             currentElement = this[currentIndex].id;
         }
-        console.log("Current index: " + currentIndex);
-        console.log("search element: " + searchElement);
-        console.log("current element: " + currentElement);
-        console.log(searchElement == currentElement);
         
         if(currentElement == searchElement && !isDesktop) {
             for(i = 0; i < rooms.length; i++) {             //go through each room and see if mobileSocket[index] matches id
@@ -300,7 +290,6 @@ function findRoomByMobile(mobileid) {
     sortRoom();
     if(rooms.length > 2) {
         for(i = 0; i < rooms.length; i++) {
-            console.log("room index: " + rooms[i].mobileSockets.binarySearch(mobileid, false));
             roomIndex = rooms[i].mobileSockets.binarySearch(mobileid, false);
         }
     }
